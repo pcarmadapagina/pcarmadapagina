@@ -1,0 +1,1361 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #171717;
+  background: #f4f4f2;
+  font-family: Inter, Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.topline {
+  background: #0d0d0d;
+  color: #bbb;
+  text-align: center;
+  padding: 9px 16px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* ESTILOS DE LA CABECERA PARA CENTRAR Y AGRANDAR EL LOGO */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: #fff; /* O el color de fondo que tenga tu header */
+  position: relative;
+  z-index: 100;
+}
+
+/* Hacemos que el logo quede en el centro absoluto y con mayor tamaño */
+.brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.brand img {
+  height: 65px; /* Aumentá o disminuí este valor si lo querés más grande o más chico */
+  width: auto;
+  display: block;
+}
+
+/* Alineación de los elementos de navegación a los costados */
+.header nav.nav {
+  display: flex;
+  gap: 25px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.nav {
+  display: flex;
+  gap: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nav a:hover,
+.footer a:hover {
+  opacity: .6;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  transition: .2s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-outline {
+  border: 1px solid #222;
+}
+
+.button-white {
+  background: #fff;
+  color: #111;
+}
+
+.button-dark {
+  background: #111;
+  color: #fff;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 24px;
+}
+
+/* CONTENEDOR PRINCIPAL DEL HERO */
+.hero {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  background-color: #101010;
+}
+
+/* CADA DIAPOSITIVA SUPERPUESTA PARA EL DIFUMINADO (TRANSICIÓN MÁS LENTA DE 1.5s) */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  padding: 90px clamp(24px, 9vw, 140px) 70px;
+}
+
+/* ESTILOS PARA LAS FLECHAS DE NAVEGACIÓN */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 12px 16px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-arrow:hover {
+  background-color: rgba(217, 4, 107, 0.8);
+}
+
+.hero-prev {
+  left: 20px;
+}
+
+.hero-next {
+  right: 20px;
+}
+
+/* DIAPOSITIVA ACTIVA (VISIBLE) */
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* BANNER 1 (CON TU DEGRADADO Y TEXTO) */
+.slide-1 {
+  background: linear-gradient(90deg, #101010 0%, #101010 52%, rgba(16, 16, 16, 0) 75%), url('assets/banners/banner1.webp');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  color: #fff;
+  filter: contrast(1.08) saturate(1.15) brightness(1.05);
+}
+
+/* BANNER 2 (GO CUOTAS LIMPIO) */
+.slide-2 {
+  background: url('assets/banners/banner2.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 590px;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2.2px;
+  font-weight: 800;
+  color: #777;
+}
+
+.hero .eyebrow {
+  color: #aaa;
+}
+
+.hero h1,
+.section h2,
+.service-section h2,
+.claims-copy h2,
+.personal-section h2,
+.about-section h2,
+.reviews-header h2 {
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: clamp(58px, 8vw, 108px);
+  line-height: .86;
+  letter-spacing: -2px;
+  margin: 24px 0;
+}
+
+.hero h1 em,
+.section h2 em,
+.claims-copy h2 em,
+.personal-section h2 em,
+.about-section h2 em,
+.reviews-header h2 em {
+  font-style: normal;
+  color: #999;
+}
+
+.hero-lead {
+  max-width: 480px;
+  color: #c5c5c5;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.text-link {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hero-note {
+  margin-top: 55px;
+  color: #777;
+  font-size: 9px;
+  letter-spacing: 1.7px;
+  font-weight: 700;
+}
+
+
+.hero-bottom {
+  position: absolute;
+  bottom: 24px;
+  left: clamp(24px, 9vw, 140px);
+  right: clamp(24px, 9vw, 140px);
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 25px clamp(24px, 9vw, 140px);
+  background: #e7e7e4;
+  gap: 20px;
+}
+
+.trust-strip div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.trust-strip b {
+  font-family: "Barlow Condensed";
+  font-size: 28px;
+  color: #999;
+}
+
+.section {
+  padding: 110px clamp(24px, 9vw, 140px);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 45px;
+}
+
+.section h2,
+.service-section h2,
+.claims-copy h2,
+.personal-section h2,
+.about-section h2,
+.reviews-header h2 {
+  font-size: clamp(48px, 6vw, 76px);
+}
+
+.section-heading p {
+  max-width: 390px;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.product-card {
+  min-height: 330px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.pc-card {
+  background: #171717;
+}
+
+.hardware-card {
+  background: #444;
+}
+
+.peripherals-card {
+  background: #777;
+}
+
+.storage-card {
+  background: #d4d4d0;
+  color: #171717;
+}
+
+.card-index {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  opacity: .7;
+}
+
+.card-art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.monitor-art:before {
+  content: "";
+  width: 125px;
+  height: 90px;
+  border: 7px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 35px #7776;
+}
+
+.monitor-art:after {
+  content: "";
+  position: absolute;
+  width: 65px;
+  height: 6px;
+  background: #aaa;
+  bottom: 108px;
+}
+
+.chip-art {
+  font-size: 55px;
+  letter-spacing: 5px;
+  text-shadow: 4px 4px 0 #222;
+}
+
+.keyboard-art {
+  font-size: 100px;
+}
+
+.drive-art {
+  font-size: 65px;
+  letter-spacing: 3px;
+}
+
+.product-card h3 {
+  font-family: "Barlow Condensed";
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.card-link {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.small-note {
+  font-size: 10px;
+  color: #888;
+  margin-top: 20px;
+}
+
+.service-section {
+  background: #141414;
+  color: #fff;
+  padding: 100px clamp(24px, 9vw, 140px);
+}
+
+.light-heading p {
+  color: #aaa;
+}
+
+.light-heading .eyebrow {
+  color: #888;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.service-card {
+  position: relative;
+  padding: 30px;
+  border: 1px solid #3a3a3a;
+  min-height: 300px;
+}
+
+.service-card>span {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  color: #666;
+  font-size: 11px;
+}
+
+.service-icon {
+  font-size: 36px;
+  color: #aaa;
+  margin: 20px 0;
+}
+
+.service-card h3 {
+  font-family: "Barlow Condensed";
+  font-size: 27px;
+  max-width: 240px;
+}
+
+.service-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #aaa;
+}
+
+.service-card a {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.claims-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #e5e5e1;
+}
+
+.claims-visual {
+  min-height: 560px;
+  background: linear-gradient(135deg, #222, #555);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.claims-visual:before,
+.claims-visual:after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border: 1px solid #8886;
+  border-radius: 50%;
+}
+
+.claims-visual:after {
+  width: 270px;
+  height: 270px;
+  border-style: dashed;
+}
+
+
+.claims-copy {
+  padding: 80px clamp(25px, 6vw, 85px);
+}
+
+.claims-copy h2 {
+  margin: 20px 0;
+}
+
+.claims-copy>p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #555;
+}
+
+.claims-copy ul {
+  padding-left: 18px;
+  color: #444;
+  font-size: 12px;
+  line-height: 2.2;
+}
+
+.fine-print {
+  font-size: 10px !important;
+  color: #888 !important;
+}
+
+/* =========================================
+   SECCIÓN RESEÑAS Y PAGINACIÓN LATERAL
+   ========================================= */
+.reviews-section {
+  padding: 100px clamp(24px, 9vw, 140px);
+  background: #ebd65b0d;
+}
+
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 45px;
+  flex-wrap: wrap;
+}
+
+/* Contenedor de flechas laterales y grilla */
+.reviews-container-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+}
+
+.review-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  color: #111;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  z-index: 10;
+}
+
+.review-arrow:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.arrow-left {
+  left: -60px;
+}
+
+.arrow-right {
+  right: -60px;
+}
+
+.reviews-page {
+  animation: fadeIn 0.4s ease-in-out;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Badge de Google con estrellas doradas y tamaño destacado */
+.google-badge {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 22px 28px;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px #00000008;
+  text-align: right;
+}
+
+.google-score-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.google-score {
+  font-size: 32px;
+  font-weight: 900;
+  color: #111;
+  line-height: 1;
+}
+
+.google-badge .google-stars {
+  color: #fbbf24;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.google-count {
+  font-size: 11px;
+  color: #666;
+  margin: 6px 0 12px;
+}
+
+.google-link {
+  font-size: 11px;
+  font-weight: 800;
+  color: #111;
+  text-decoration: underline;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px 24px; /* 30px de separación vertical entre filas, 24px horizontal entre columnas */
+}
+
+.review-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  height: 100%;
+}
+
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+.review-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.review-top h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.review-stars {
+  color: #f59e0b;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.review-text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #444;
+  margin: 0 0 15px;
+  flex: 1;
+}
+
+.review-tag {
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #888;
+  text-transform: uppercase;
+  margin-top: 10px;
+  display: block;
+}
+
+.review-photos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+.review-photos img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: transform .2s ease;
+}
+
+.review-photos img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.personal-section {
+  background: #333;
+  color: #fff;
+  padding: 75px clamp(24px, 9vw, 140px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.personal-section .eyebrow {
+  color: #aaa;
+}
+
+.personal-section h2 {
+  margin-bottom: 0;
+}
+
+.personal-section p {
+  color: #ccc;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.about-section {
+  text-align: center;
+  padding: 100px 24px;
+  max-width: 950px;
+  margin: auto;
+}
+
+.about-section h2 {
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.05;
+}
+
+.about-section p {
+  max-width: 720px;
+  margin: 25px auto;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 30px clamp(24px, 6vw, 92px);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer span {
+  font-size: 10px;
+  color: #999;
+}
+
+.footer-right {
+  margin-left: auto;
+  text-align: right;
+}
+
+.footer-right a {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+@media(max-width: 1100px) {
+  .arrow-left { left: -15px; }
+  .arrow-right { right: -15px; }
+}
+
+@media(max-width: 900px) {
+  .nav {
+    gap: 14px;
+  }
+  .hero-art {
+    right: 0;
+    opacity: .55;
+  }
+  .hero-copy {
+    max-width: 560px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .claims-section {
+    grid-template-columns: 1fr;
+  }
+  .claims-visual {
+    min-height: 300px;
+  }
+  .claims-copy {
+    padding: 60px 9vw;
+  }
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .reviews-container-wrapper {
+    flex-direction: column;
+  }
+  .review-arrow {
+    position: static;
+    transform: none;
+    margin: 15px 5px 0 5px;
+  }
+  .arrow-left, .arrow-right {
+    left: auto;
+    right: auto;
+  }
+}
+
+@media(max-width: 650px) {
+  .header {
+    height: 140px;
+    padding: 0 18px;
+  }
+  .brand img {
+    width: 120px;
+    height: 120px;
+  }
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+  .header>.button {
+    display: none;
+  }
+  .nav {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 140px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 22px;
+    flex-direction: column;
+    box-shadow: 0 10px 20px #0002;
+  }
+  .nav.open {
+    display: flex;
+  }
+  .hero {
+    min-height: 690px;
+    padding: 70px 24px 90px;
+    align-items: flex-start;
+  }
+  .hero h1 {
+    font-size: 72px;
+  }
+  .hero-art {
+    width: 100%;
+    height: 330px;
+    top: auto;
+    bottom: 45px;
+    right: -12%;
+    transform: none;
+    opacity: .38;
+  }
+  .pc-case {
+    transform: scale(.75);
+  }
+  .orbit {
+    width: 300px;
+    height: 300px;
+  }
+  .orbit-two {
+    width: 230px;
+    height: 230px;
+  }
+  .floating-chip {
+    right: 12%;
+    top: 14%;
+    font-size: 18px;
+  }
+  .art-caption {
+    left: 10%;
+    bottom: 10%;
+  }
+  .hero-bottom {
+    left: 24px;
+    right: 24px;
+  }
+  .hero-bottom span:nth-child(2) {
+    display: none;
+  }
+  .trust-strip {
+    grid-template-columns: 1fr;
+    padding: 22px 24px;
+    gap: 12px;
+  }
+  .section,
+  .service-section,
+  .reviews-section {
+    padding: 75px 24px;
+  }
+  .section-heading {
+    display: block;
+  }
+  .section-heading p {
+    margin-top: 24px;
+  }
+  .product-grid,
+  .service-grid,
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-card {
+    min-height: 270px;
+  }
+  .service-card {
+    min-height: 250px;
+  }
+  .personal-section {
+    grid-template-columns: 1fr;
+    padding: 65px 24px;
+    gap: 20px;
+  }
+  .claims-copy {
+    padding: 60px 24px;
+  }
+  .footer {
+    flex-wrap: wrap;
+    padding: 25px 20px;
+  }
+  .footer-right {
+    width: 100%;
+    margin-left: 83px;
+    text-align: left;
+  }
+  .hero-note {
+    max-width: 250px;
+    line-height: 1.8;
+  }
+  .google-badge {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+.pc-card-img {
+  background: #171717;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.product-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pc-card-img:hover .product-real-img {
+  transform: scale(1.05); /* Efecto zoom sutil al pasar el mouse */
+}
+.card-img-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #000; /* Fondo negro por si la imagen es transparente o angosta */
+}
+
+
+/* Contenedor relativo para posicionar el texto encima */
+.card-img-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: flex-end; /* Alinea el texto abajo o al centro según prefieras */
+  justify-content: flex-start;
+  overflow: hidden;
+  border-radius: 6px;
+  min-height: 280px;
+}
+
+/* Imagen de fondo con zoom sutil en hover */
+.product-real-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pc-card-img:hover .product-real-img {
+  transform: scale(1.06);
+}
+
+/* Capa oscura (overlay) para dar contraste al texto */
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
+  z-index: 1;
+}
+
+/* Estilos de los textos flotantes sobre la foto */
+.card-text-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  color: #fff;
+  width: 100%;
+}
+
+.overlay-eyebrow {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #aaa;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.card-text-overlay h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+.card-text-overlay p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #d1d5db;
+  margin: 0;
+  font-weight: 500;
+}
+
+.hardware-card-img {
+  background: #171717;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  padding: 22px;
+}
+.pc-card-img:hover .product-real-img,
+.hardware-card-img:hover .product-real-img {
+  transform: scale(1.06);
+}
+/* Estado normal: un poco desaturada o en tonos oscuros/grises */
+.product-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(80%) brightness(0.85);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Estado al pasar el mouse: se mueve (zoom) y cobra vida todo el color RGB */
+.product-card:hover .product-real-img {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(1.05) saturate(1.2);
+}
+/* Estilo base de la tarjeta de periféricos */
+.peripherals-card-img {
+  background: #171717;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  padding: 22px;
+}
+
+.peripherals-card-img .product-real-img {
+  filter: grayscale(100%) brightness(0.85); /* En blanco y negro completo al reposar */
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.peripherals-card-img:hover .product-real-img {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(1.05) saturate(1.25); /* Pasa a todo color al pasar el mouse */
+}
+
+/* Estilo base y efecto hover para Almacenamiento */
+.storage-card-img {
+  background: #171717;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  padding: 22px;
+}
+
+.storage-card-img .product-real-img {
+  filter: grayscale(100%) brightness(0.85);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.storage-card-img:hover .product-real-img {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(1.05) saturate(1.25);
+}
+
+
+/* Estilos generales para las tarjetas de servicios con imagen */
+.service-card-img {
+  background: #171717;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  padding: 22px;
+}
+
+.service-card-img .product-real-img {
+  filter: grayscale(100%) brightness(0.85);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.service-card-img:hover .product-real-img {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(1.05) saturate(1.25);
+}
+
+/* Fondo por defecto para las tarjetas que aún no tienen foto cargada */
+.card-img-container.bg-placeholder {
+  background: linear-gradient(135deg, #222 0%, #111 100%);
+}
+
+
+.claims-visual {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.claims-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Forzar la eliminación de cualquier círculo o adorno viejo en el bloque de compañías */
+.claims-visual::before,
+.claims-visual::after,
+.claims-mark {
+  display: none !important;
+  content: none !important;
+}
+
+/* Contenedor adaptativo para la sección de compañías */
+.claims-visual {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 320px; /* Altura mínima en celulares para que luzca bien */
+}
+
+.claims-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* En celulares muestra toda la imagen sin recortar ningún logo */
+  display: block;
+}
+
+/* En pantallas grandes (computadoras), permitimos que cubra todo el espacio sin márgenes */
+@media (min-width: 768px) {
+  .claims-visual {
+    min-height: 100%;
+  }
+  .claims-real-img {
+    object-fit: cover; 
+  }
+}
+
+
+/* CARRUSEL INFINITO DE MARCAS LIMPIO Y FIJO */
+.brands-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #f4f4f4; /* Mismo tono de fondo que la franja superior */
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 22px 0;
+  display: flex;
+  user-select: none;
+}
+
+.brands-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 60px;
+  animation: scrollMarquee 40s linear infinite;
+  /* IMPORTANTE: Quitamos cualquier pausa al hacer hover para que siga de largo */
+}
+
+/* Caja contenedora fija para cada logo */
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 45px;
+  white-space: nowrap;
+}
+
+/* Logo con color real y mezcla de fondo para eliminar el cuadrado blanco */
+.brand-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply; /* Magia de CSS: hace que el fondo blanco de la imagen se vuelva transparente sobre el gris */
+  opacity: 0.9; /* Le da una integración sutil y profesional */
+  /* Sin efectos de hover ni escala de grises: quedan quietos y en color siempre */
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* BANNER 2 (GO CUOTAS ADAPTABLE) */
+.slide-2 {
+  background: url('assets/banners/banner2.webp');
+  background-size: contain; /* Cambiamos a contain para que la imagen NUNCA se recorte y se vea entera */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #dd065c; /* Color fucsia de fondo por si queda alguna franja a los costados */
+}
+
+/* BANNER 3 (ADAPTABLE Y PROPORCIONADO) */
+.slide-3 {
+  background: url('assets/banners/banner3.webp');
+  background-size: contain; /* Evita que se deforme o se vea gigante */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #0b0f19; /* Color oscuro de fondo para rellenar los bordes laterales limpiamente */
+}
+
+
+
+
+
+
+
+/* ESTILOS DEL BOTÓN FLOTANTE DE WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  color: #fff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #20ba5a;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}

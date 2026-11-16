@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://pcarmada.com.ar/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://pcarmada.com.ar/blog/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pcarmada.com.ar/blog/como-elegir-motherboard-gamer-guia-2026.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pcarmada.com.ar/blog/reparacion-microelectronica-de-pc-envios-de-todo-el-pais.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- Agregá acá cada artículo nuevo:
+  <url>
+    <loc>https://pcarmada.com.ar/blog/slug-del-articulo.html</loc>
+    <lastmod>AAAA-MM-DD</lastmod>
+    <priority>0.7</priority>
+  </url>
+  -->
+</urlset>
